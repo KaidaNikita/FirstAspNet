@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Книжный магазин</title>
+    <style>
+        body 
+        {
+            background-color:burlywood;
+        }
+        h3, p {
+            text-align: center;
+            border: 5px solid chocolate;
+            background-color: chocolate;
+            border-radius: 10px 20px;
+        }
+        a {          
+            border: 7px solid chocolate;
+            background-color: chocolate;
+            border-radius: 10px 20px;
+        }
+        #for_table {
+           padding-left:20%;
+        }
+        #reclam {
+            margin-top: 52px;
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Распродажа книг</h3>
+        <hr/>
+        <div id="reclam">
+            <div class="baner">
+                <img width="100" height="150" src="https://b1.culture.ru/c/365442.jpg"/>
+            </div>
+        </div>
+        <div id="for_table">
+            <table>
+                <tr>
+                    <td><p>Фото</p></td>
+                    <td><p>Название книги</p></td>
+                    <td><p>Автор</p></td>
+                    <td><p>Цена</p></td>
+                    <td></td>
+                </tr>
+                @foreach (var b in ViewBag.Books)
+                {
+                    <tr>
+                        <td><p><img width="100" height="150" src="@b.image" /></p></td>
+                        <td><p>@b.Name</p></td>
+                        <td><p>@b.Author</p></td>
+                        <td><p>@b.Price</p></td>
+                        <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>
